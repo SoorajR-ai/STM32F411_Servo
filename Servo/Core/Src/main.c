@@ -30,12 +30,13 @@ int main(void)
 	  HAL_Delay(1000);
 	  ServoWrite(90);
 	  HAL_Delay(1000);
+
   }
 }
 
 /* function to convert servo angle to PWM duty cycle  */
 void ServoWrite(uint8_t angle){
-    uint16_t pulse_width = 1000 + ((angle * 1000) / 180);   // 0-180 degree to 1000-2000us  PWM
+    uint16_t pulse_width = 500 + ((angle * 2000) / 180);   // 0-180 degree to 1000-2000us  PWM
     htim2.Instance->CCR1 = pulse_width;                     // Change PWM duty cycle
 }
 
